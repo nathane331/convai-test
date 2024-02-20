@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39944eda097b78b4492c994bfb5f29e8, type: 3}
+  m_Name: SadFace
+  m_EditorClassIdentifier: 
+  expressionName: Sad
+  blendShapeWeights:
+  - rendererIdentifier: Head
+    blendShapeIndex: 0
+    weight: 50
+  - rendererIdentifier: Head
+    blendShapeIndex: 1
+    weight: 50
+  - rendererIdentifier: Head
+    blendShapeIndex: 42
+    weight: 100
+  - rendererIdentifier: Head
+    blendShapeIndex: 43
+    weight: 100
+  - rendererIdentifier: Head
+    blendShapeIndex: 52
+    weight: 30
+  - rendererIdentifier: Scalp
+    blendShapeIndex: 0
+    weight: 50
+  - rendererIdentifier: Scalp
+    blendShapeIndex: 1
+    weight: 50

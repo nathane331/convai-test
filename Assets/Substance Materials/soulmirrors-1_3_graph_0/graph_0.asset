@@ -390,19 +390,21 @@ MonoBehaviour:
   HasThumbnail: 1
   CurrentStatePreset: " <sbspreset pkgurl=\"pkg://Soulmirrors_1_3\" label=\"\" >\n 
     <presetinput identifier=\"$outputsize\" uid=\"2275420388\" type=\"8\" value=\"10,10\"
+    />\n  <presetinput identifier=\"$randomseed\" uid=\"3503439542\" type=\"4\" value=\"7038\"
     />\n  <presetinput identifier=\"Middle_color\" uid=\"3932869746\" type=\"3\"
-    value=\"1,0,0.155723,1\" />\n  <presetinput identifier=\"Edge_color\" uid=\"3932880359\"
-    type=\"3\" value=\"0.282073,1,0,1\" />\n  <presetinput identifier=\"Inner_color\"
-    uid=\"3932866154\" type=\"3\" value=\"0,0.280793,1,1\" />\n  <presetinput identifier=\"Background_color\"
-    uid=\"3932795919\" type=\"3\" value=\"0,0.704818,0.830189,1\" />\n  <presetinput
-    identifier=\"pupil_size\" uid=\"3932891420\" type=\"0\" value=\"0.237\" />\n 
-    <presetinput identifier=\"width\" uid=\"3932891488\" type=\"0\" value=\"0.467\"
+    value=\"1,1,1,1\" />\n  <presetinput identifier=\"Edge_color\" uid=\"3932880359\"
+    type=\"3\" value=\"0.150943,0.0440252,0,1\" />\n  <presetinput identifier=\"Inner_color\"
+    uid=\"3932866154\" type=\"3\" value=\"0.245283,0.0176824,0.001157,1\" />\n  <presetinput
+    identifier=\"Background_color\" uid=\"3932795919\" type=\"3\" value=\"0.264151,0.105121,0,1\"
+    />\n  <presetinput identifier=\"pupil_size\" uid=\"3932891420\" type=\"0\" value=\"0.102\"
+    />\n  <presetinput identifier=\"width\" uid=\"3932891488\" type=\"0\" value=\"0.259\"
     />\n  <presetinput identifier=\"Freckles_softness\" uid=\"3932803187\" type=\"0\"
     value=\"1\" />\n  <presetinput identifier=\"Freckles_color\" uid=\"3932751523\"
     type=\"3\" value=\"1,1,1,1\" />\n  <presetinput identifier=\"Layer_one_color\"
-    uid=\"3932818486\" type=\"3\" value=\"1,0,0.83718,1\" />\n  <presetinput identifier=\"Color_layer_two\"
-    uid=\"3932866457\" type=\"3\" value=\"0,0.404351,1,1\" />\n  <presetinput identifier=\"White_color\"
-    uid=\"3932880401\" type=\"3\" value=\"1,0.855883,0.845283,1\" />\n </sbspreset>\n"
+    uid=\"3932818486\" type=\"3\" value=\"0.132075,0.0266723,0,1\" />\n  <presetinput
+    identifier=\"Color_layer_two\" uid=\"3932866457\" type=\"3\" value=\"0.188679,0.0639591,0,1\"
+    />\n  <presetinput identifier=\"White_color\" uid=\"3932880401\" type=\"3\" value=\"1,0.855883,0.845283,1\"
+    />\n </sbspreset>\n"
   IsRuntimeOnly: 0
   GenerateAllOutputs: 0
   GenerateAllMipmaps: 1
@@ -489,7 +491,7 @@ MonoBehaviour:
           GuiDescription: 
           Type: 4
           WidgetType: 0
-        Data: 0
+        Data: 7038
         NumericalDescription:
           DefaultValue: 0
           MinValue: 0
@@ -512,7 +514,7 @@ MonoBehaviour:
             output image
           Type: 3
           WidgetType: 3
-        Data: {x: 1, y: 0, z: 0.1557231, w: 1}
+        Data: {x: 1, y: 1, z: 1, w: 1}
         NumericalDescription:
           DefaultValue: {x: 0.356215, y: 0.218092, z: 0.157891, w: 1}
           MinValue: {x: 0, y: 0, z: 0, w: 0}
@@ -533,7 +535,7 @@ MonoBehaviour:
             output image
           Type: 3
           WidgetType: 3
-        Data: {x: 0.2820735, y: 1, z: 0, w: 1}
+        Data: {x: 0.1509434, y: 0.044025157, z: 0, w: 1}
         NumericalDescription:
           DefaultValue: {x: 0.331793, y: 0.264727, z: 0.217184, w: 1}
           MinValue: {x: 0, y: 0, z: 0, w: 0}
@@ -554,7 +556,7 @@ MonoBehaviour:
             output image
           Type: 3
           WidgetType: 3
-        Data: {x: 0, y: 0.2807932, z: 1, w: 1}
+        Data: {x: 0.24528301, y: 0.017682433, z: 0.0011569981, w: 1}
         NumericalDescription:
           DefaultValue: {x: 0.485251, y: 0.414649, z: 0.271777, w: 1}
           MinValue: {x: 0, y: 0, z: 0, w: 0}
@@ -575,7 +577,7 @@ MonoBehaviour:
             output image
           Type: 3
           WidgetType: 3
-        Data: {x: 0, y: 0.70481753, z: 0.8301887, w: 1}
+        Data: {x: 0.26415092, y: 0.10512128, z: 0, w: 1}
         NumericalDescription:
           DefaultValue: {x: 0.215052, y: 0.0966082, z: 0.0240069, w: 1}
           MinValue: {x: 0, y: 0, z: 0, w: 0}
@@ -595,7 +597,7 @@ MonoBehaviour:
           GuiDescription: 
           Type: 0
           WidgetType: 1
-        Data: 0.237
+        Data: 0.102
         NumericalDescription:
           DefaultValue: 0.15
           MinValue: 0
@@ -615,7 +617,7 @@ MonoBehaviour:
           GuiDescription: 
           Type: 0
           WidgetType: 1
-        Data: 0.467
+        Data: 0.259
         NumericalDescription:
           DefaultValue: 0.45
           MinValue: 0
@@ -803,7 +805,7 @@ MonoBehaviour:
             output image
           Type: 3
           WidgetType: 3
-        Data: {x: 1, y: 0, z: 0.83718014, w: 1}
+        Data: {x: 0.13207549, y: 0.026672335, z: 0, w: 1}
         NumericalDescription:
           DefaultValue: {x: 0.514774, y: 0.201947, z: 0, w: 1}
           MinValue: {x: 0, y: 0, z: 0, w: 0}
@@ -886,7 +888,7 @@ MonoBehaviour:
             output image
           Type: 3
           WidgetType: 3
-        Data: {x: 0, y: 0.40435147, z: 1, w: 1}
+        Data: {x: 0.18867922, y: 0.06395906, z: 0, w: 1}
         NumericalDescription:
           DefaultValue: {x: 0.37, y: 0.213275, z: 0.0620882, w: 1}
           MinValue: {x: 0, y: 0, z: 0, w: 0}
