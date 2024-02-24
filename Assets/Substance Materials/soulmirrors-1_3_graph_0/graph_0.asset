@@ -396,8 +396,8 @@ MonoBehaviour:
     type=\"3\" value=\"0.150943,0.0440252,0,1\" />\n  <presetinput identifier=\"Inner_color\"
     uid=\"3932866154\" type=\"3\" value=\"0.245283,0.0176824,0.001157,1\" />\n  <presetinput
     identifier=\"Background_color\" uid=\"3932795919\" type=\"3\" value=\"0.264151,0.105121,0,1\"
-    />\n  <presetinput identifier=\"pupil_size\" uid=\"3932891420\" type=\"0\" value=\"0.102\"
-    />\n  <presetinput identifier=\"width\" uid=\"3932891488\" type=\"0\" value=\"0.259\"
+    />\n  <presetinput identifier=\"pupil_size\" uid=\"3932891420\" type=\"0\" value=\"0.092\"
+    />\n  <presetinput identifier=\"width\" uid=\"3932891488\" type=\"0\" value=\"0.285\"
     />\n  <presetinput identifier=\"Freckles_softness\" uid=\"3932803187\" type=\"0\"
     value=\"1\" />\n  <presetinput identifier=\"Freckles_color\" uid=\"3932751523\"
     type=\"3\" value=\"1,1,1,1\" />\n  <presetinput identifier=\"Layer_one_color\"
@@ -597,7 +597,7 @@ MonoBehaviour:
           GuiDescription: 
           Type: 0
           WidgetType: 1
-        Data: 0.102
+        Data: 0.092
         NumericalDescription:
           DefaultValue: 0.15
           MinValue: 0
@@ -617,7 +617,7 @@ MonoBehaviour:
           GuiDescription: 
           Type: 0
           WidgetType: 1
-        Data: 0.259
+        Data: 0.285
         NumericalDescription:
           DefaultValue: 0.45
           MinValue: 0
