@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce2f5cfeea74c774f848e28ae5afe8dd, type: 3}
-  m_Name: Mouth
+  m_Name: Eye
   m_EditorClassIdentifier: 
-  faceFeatureName: Mouth
+  faceFeatureName: Eye
   faceFeaturePresetSO:
-  - {fileID: 11400000, guid: 050dc6dbaf6049846bf924acb32a8f70, type: 2}
-  - {fileID: 11400000, guid: 69af908bd06ad2c4e9cf6376457dcc93, type: 2}
-  - {fileID: 11400000, guid: 4c8868131751b46418f7498d6236cc31, type: 2}
+  - {fileID: 11400000, guid: 15de6b5a4b9a3eb40a280d5b045cace1, type: 2}
+  - {fileID: 11400000, guid: 5860d2ac5fc254740a579bf574ff4887, type: 2}

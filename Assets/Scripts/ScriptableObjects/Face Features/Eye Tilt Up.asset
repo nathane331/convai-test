@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a8d74b13c659504bb0145c4970595e1, type: 3}
-  m_Name: NosePreset1
+  m_Name: Eye Tilt Up
   m_EditorClassIdentifier: 
-  facialFeatureName: Wide Nose
+  facialFeatureName: Eye Tilt Up
   blendShapeWeights:
-  - blendShapeIndex: 89
-    weight: 100
-  - blendShapeIndex: 95
+  - blendShapeIndex: 100
     weight: 100

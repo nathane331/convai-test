@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce2f5cfeea74c774f848e28ae5afe8dd, type: 3}
+  m_Name: Jaw
+  m_EditorClassIdentifier: 
+  faceFeatureName: 
+  faceFeaturePresetSO:
+  - {fileID: 11400000, guid: 6edaa9692fe1fe14b99c6de56ba1945a, type: 2}
+  - {fileID: 11400000, guid: 652cf2b46a6a5214fb78da515ce05ea8, type: 2}
+  - {fileID: 11400000, guid: 75323a40e1aa2e74bb90b8d817d13440, type: 2}
+  - {fileID: 11400000, guid: 313aaf00b4f10aa4c9206110758197cc, type: 2}
+  - {fileID: 11400000, guid: 60e9aad3772de5d4197a8eff8cb112d4, type: 2}
+  - {fileID: 11400000, guid: a12f982a55bb4c1479a710a2f206bf81, type: 2}
