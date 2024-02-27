@@ -284,6 +284,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 548509432}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &831175494 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6268928675014656758, guid: dcce4f924f7dce4488e0a47fe8d24742, type: 3}
+  m_PrefabInstance: {fileID: 7741939175833631499}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70628a4f8d99fa84ba5bf52eabb0e563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1099364510 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6458729527623880977, guid: ff0b8f86afbe0ae4a8270ae4998b1e8a, type: 3}
@@ -818,6 +829,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6458729527623880977, guid: ff0b8f86afbe0ae4a8270ae4998b1e8a, type: 3}
+      propertyPath: faceFeatureController
+      value: 
+      objectReference: {fileID: 831175494}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

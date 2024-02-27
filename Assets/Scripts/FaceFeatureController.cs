@@ -1,4 +1,4 @@
-using Google.Protobuf.WellKnownTypes;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,60 +9,62 @@ using UnityEngine.UI;
 public class FaceFeatureController : MonoBehaviour
 {
     [SerializeField] private SkinnedMeshRenderer headMesh;
-    [SerializeField] private GameObject faceSlider;
-    [SerializeField] private TMP_Text text;
+    [SerializeField] private GameObject faceSliderPrefab;
     [SerializeField] private Transform canvas;
+    public FaceExpressionManager expressionManager;
+    [SerializeField] float weightMutil = 100;
 
-    Mesh skinnedMesh;
-    public GameObject[] faceSliders;
-    
-
-
-    // Start is called before the first frame update
+    public Dictionary<int, float> manualSettingDatas = new Dictionary<int, float>();
+    public List<string> testString = new List<string>();
     void Start()
     {
-        /*
-        faceSlider.onValueChanged.AddListener((v) =>
-        {
-            headMesh.SetBlendShapeWeight(79, v);
-            text.text = v.ToString("0.00");
-        });
-
-        faceSlider2.onValueChanged.AddListener((v) =>
-        {
-            headMesh.SetBlendShapeWeight(80, v);
-            text.text = v.ToString("0.00");
-        });
-        */
-
-        skinnedMesh = headMesh.GetComponent<SkinnedMeshRenderer>().sharedMesh;
-
-        faceSliders = new GameObject[skinnedMesh.blendShapeCount-79];
-        int j = 0;
-
-        for (int i = 79; i < skinnedMesh.blendShapeCount-1; i++)
-        {
-            int copy = i;
-            GameObject newSlider = Instantiate(faceSlider, canvas);
-            
-            faceSliders[j] = newSlider;
-            faceSliders[j].GetComponentInChildren<TMP_Text>().text = skinnedMesh.GetBlendShapeName(i).Replace("Face: ",""); 
-
-            faceSliders[j].GetComponent<Slider>().onValueChanged.AddListener((v) =>
-            {
-                headMesh.SetBlendShapeWeight(copy, v);
-                //faceSliders[j].GetComponentInChildren<TMP_Text>().text = v.ToString("0.00");
-
-            });
-            j++;
-        }
-
+        InitializeFaceSliders();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void InitializeFaceSliders()
     {
-        
+        Mesh skinnedMesh = headMesh.sharedMesh;
+        for (int i = 0; i < skinnedMesh.blendShapeCount; i++)
+        {
+            if (testString.Find(item => item == skinnedMesh.GetBlendShapeName(i)) != null)
+            {
+                GameObject newSlider = Instantiate(faceSliderPrefab, canvas);
+                Slider slider = newSlider.GetComponent<Slider>();
+                TMP_Text label = newSlider.GetComponentInChildren<TMP_Text>();
+
+                int blendShapeIndex = i; 
+                string name = skinnedMesh.GetBlendShapeName(blendShapeIndex);
+                label.text = name;
+                UnityEngine.Events.UnityAction<float> call = (value) =>
+                {
+                    float resultWeight = value * weightMutil;
+                    headMesh.SetBlendShapeWeight(blendShapeIndex, resultWeight);
+                    if (manualSettingDatas.ContainsKey(blendShapeIndex))
+                    {
+                        manualSettingDatas[blendShapeIndex] = resultWeight;
+                    }
+                    else
+                    {
+                        manualSettingDatas.Add(blendShapeIndex, resultWeight);
+                    }
+                    //expressionManager.AdjustCustomBlendShapeWeight(headMesh, blendShapeIndex, value); 
+                };
+                slider.onValueChanged.AddListener(call);
+            }
+
+        }
     }
-    
+
+    public void ResetSettingValue()
+    {
+        Mesh skinnedMesh = headMesh.sharedMesh;
+
+        for (int i = 0; i < skinnedMesh.blendShapeCount; i++)
+        {
+            if (manualSettingDatas.ContainsKey(i))
+                headMesh.SetBlendShapeWeight(i, manualSettingDatas[i]);
+        }
+    }
 }
+
+

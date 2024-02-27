@@ -6,6 +6,7 @@ public class FaceExpressionManager : MonoBehaviour
 {
     public List<FaceExpression> faceExpressions;
     private Dictionary<string, SkinnedMeshRenderer> renderersByName;
+    public FaceFeatureController faceFeatureController;
 
     void Awake()
     {
@@ -31,10 +32,15 @@ public class FaceExpressionManager : MonoBehaviour
         if (expression != null)
         {
             ResetAllBlendShapes(); // Reset BlendShapes
+            ResetSetting();
             ApplyExpression(expression);
         }
     }
-
+    //Recover adjusted BlendShape Weight
+    void ResetSetting()
+    {
+        faceFeatureController.ResetSettingValue();
+    }
     private void ResetAllBlendShapes()
     {
         foreach (var rendererEntry in renderersByName)
