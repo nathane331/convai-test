@@ -19,7 +19,7 @@ public class CustomizeMenuPanel : MonoBehaviour
             GameObject FeatureButtonPrefab = Instantiate(FeatureButton, faceFeatureContent); //create button for feature presets
             //connect buttons to sliders
 
-            FeatureButtonPrefab.GetComponent<FeatureButton>().InheritBlendshapes(clickableFaceFeatureSO.faceFeaturePresetSO[i]);
+            FeatureButtonPrefab.GetComponent<FeatureButton>().InheritBlendshapes(clickableFaceFeatureSO.faceFeaturePresetSO[i], clickableFaceFeatureSO);
 
         }
     }
