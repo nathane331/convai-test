@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CustomizeMenuPanel : MonoBehaviour
 {
     [SerializeField] Transform faceFeatureContent;
     [SerializeField] GameObject FeatureButton;
+    
     // Start is called before the first frame update
     public void Show(ClickableFaceFeatureSO clickableFaceFeatureSO)
     {
