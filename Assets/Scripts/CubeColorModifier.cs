@@ -5,10 +5,15 @@ using UnityEngine.UI;
 
 public class CubeColorModifier : MonoBehaviour
 {
-    [SerializeField] SkinnedMeshRenderer skin;
+    [SerializeField] SkinnedMeshRenderer skin, scalp;
     [SerializeField] Slider red;
     [SerializeField] Slider green;
     [SerializeField] Slider blue;
+
+    public Color[] skinColors;
+    [SerializeField] int skinColorIndex;
+
+    [SerializeField] Image skinPreview;
 
     public void OnEdit()
     {
@@ -18,5 +23,31 @@ public class CubeColorModifier : MonoBehaviour
         color.b = blue.value;
         skin.material.color = color;
         skin.material.SetColor("_EmissionColor", color);
+
+        scalp.material.color = color;
+        scalp.material.SetColor("_EmissionColor", color);
+
+        skinPreview.color = color;
     }
+
+    public void ChangeSkinColorPreset(int skinColorIndex)
+    {
+        Color color = skinColors[skinColorIndex];
+
+        skin.material.color = color;
+        skin.material.SetColor("_EmissionColor", color);
+
+        scalp.material.color = color;
+        scalp.material.SetColor("_EmissionColor", color);
+
+        red.value = color.r;
+        green.value = color.g;
+        blue.value = color.b;
+
+        skinPreview.color = color;
+
+    }
+
+
+
 }

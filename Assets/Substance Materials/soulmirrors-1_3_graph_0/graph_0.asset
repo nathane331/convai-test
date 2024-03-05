@@ -402,7 +402,7 @@ MonoBehaviour:
     value=\"1\" />\n  <presetinput identifier=\"Freckles_color\" uid=\"3932751523\"
     type=\"3\" value=\"1,1,1,1\" />\n  <presetinput identifier=\"Layer_one_color\"
     uid=\"3932818486\" type=\"3\" value=\"0.132075,0.0266723,0,1\" />\n  <presetinput
-    identifier=\"Color_layer_two\" uid=\"3932866457\" type=\"3\" value=\"0.188679,0.0639591,0,1\"
+    identifier=\"Color_layer_two\" uid=\"3932866457\" type=\"3\" value=\"0.113208,0,0.0196487,1\"
     />\n  <presetinput identifier=\"White_color\" uid=\"3932880401\" type=\"3\" value=\"1,0.855883,0.845283,1\"
     />\n </sbspreset>\n"
   IsRuntimeOnly: 0
@@ -888,7 +888,7 @@ MonoBehaviour:
             output image
           Type: 3
           WidgetType: 3
-        Data: {x: 0.18867922, y: 0.06395906, z: 0, w: 1}
+        Data: {x: 0.11320752, y: 0, z: 0.019648692, w: 1}
         NumericalDescription:
           DefaultValue: {x: 0.37, y: 0.213275, z: 0.0620882, w: 1}
           MinValue: {x: 0, y: 0, z: 0, w: 0}

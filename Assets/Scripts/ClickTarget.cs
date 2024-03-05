@@ -8,25 +8,21 @@ public class ClickTarget : MonoBehaviour
     [SerializeField] ClickableFaceFeatureSO clickableFaceFeatureSO;
     [SerializeField] CustomizeMenuPanel customizeMenuPanel;
     // Update is called once per frame
-    void Update()
+    void Start()
     {
-       
+        
     }
 
     void OnMouseDown()
     {
         Debug.Log(gameObject.name);
 
-        if(customizeMenuPanel.IsActive())
-                {
-                    customizeMenuPanel.Hide();
-                    Debug.Log("Hide panel");
-                }
-                else
-                {
-                    customizeMenuPanel.Show(clickableFaceFeatureSO);
-                    Debug.Log("Show panel");
-                }
+        customizeMenuPanel.Hide();
+        Debug.Log("Hide panel");
+
+        customizeMenuPanel.Show(clickableFaceFeatureSO);
+        Debug.Log("Show panel");
+
     }
 
 

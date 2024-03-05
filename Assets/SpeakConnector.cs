@@ -7,11 +7,12 @@ using UnityEngine;
 public class SpeakConnector : MonoBehaviour
 {
     [SerializeField] ChatGPT chat;
-    [SerializeField] TTSSpeaker _speaker;
+    [SerializeField] public TTSSpeaker _speaker;
     // Start is called before the first frame update
     void Start()
     {
         chat.chatResponse = null;
+        
     }
 
     // Update is called once per frame

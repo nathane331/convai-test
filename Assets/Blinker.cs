@@ -28,7 +28,7 @@ public class Blinker : MonoBehaviour
     IEnumerator Blink()
         {
             playAnim = false;
-            yield return new WaitForSeconds(Random.Range(4f, 8f));
+            yield return new WaitForSeconds(Random.Range(3f, 6f));
             animator.Play("Blinking.FaceBlinking", 1, 0f);
             Debug.Log("Blinking.");
             playAnim = true;
