@@ -12,7 +12,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject skinColorPanel;
     
     [SerializeField] Button[] skinButtons;
+    [SerializeField] Button[] hairButtons;
     [SerializeField] CubeColorModifier colorModifier;
+    [SerializeField] HairColorChanger hairColorModifier;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,10 @@ public class UIManager : MonoBehaviour
             //colorButtons[i].onClick.AddListener(() => puppetCustoms.ColorChanger(buttonIndex, currentButton));
             skinButtons[i].onClick.AddListener(() => colorModifier.ChangeSkinColorPreset(buttonIndex));
             skinButtons[i].GetComponent<Image>().color = colorModifier.skinColors[buttonIndex];
+
+            hairButtons[i].onClick.AddListener(() => hairColorModifier.ChangeHairColorPreset(buttonIndex));
+            hairButtons[i].GetComponent<Image>().color = hairColorModifier.hairColors[buttonIndex];
+
         }
     }
 

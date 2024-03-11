@@ -15,6 +15,9 @@ public class CubeColorModifier : MonoBehaviour
 
     [SerializeField] Image skinPreview;
 
+    public Texture[] skinNormals;
+    public Texture[] skinAlbedo;
+
     public void OnEdit()
     {
         Color color = skin.material.color;
@@ -25,7 +28,7 @@ public class CubeColorModifier : MonoBehaviour
         skin.material.SetColor("_EmissionColor", color);
 
         scalp.material.color = color;
-        scalp.material.SetColor("_EmissionColor", color);
+       // scalp.material.SetColor("_EmissionColor", color);
 
         skinPreview.color = color;
     }
@@ -38,7 +41,7 @@ public class CubeColorModifier : MonoBehaviour
         skin.material.SetColor("_EmissionColor", color);
 
         scalp.material.color = color;
-        scalp.material.SetColor("_EmissionColor", color);
+        //scalp.material.SetColor("_EmissionColor", color);
 
         red.value = color.r;
         green.value = color.g;
@@ -48,6 +51,18 @@ public class CubeColorModifier : MonoBehaviour
 
     }
 
+    public void ChangeSkinNormalPreset(int skinNormalsIndex)
+    {
+        Texture newNormal = skinNormals[skinNormalsIndex];
 
+        skin.material.SetTexture("_BumpMap", newNormal);
+    }
+
+    public void ChangeSkinAlbedoPreset(int skinAlbedoIndex)
+    {
+        Texture newAlbedo = skinAlbedo[skinAlbedoIndex];
+
+        skin.material.SetTexture("_MainTex", newAlbedo);
+    }
 
 }
