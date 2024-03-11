@@ -19,7 +19,7 @@ namespace OpenAI
         private OpenAIApi openai = new OpenAIApi("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");
 
         private List<ChatMessage> messages = new List<ChatMessage>();
-        private string prompt = "Act as a random stranger in a chat room and reply to the questions. Don't break character. Don't ever mention that you are an AI model. Keep responses under 150 characters.";
+        private string prompt = "Act as a random stranger in a chat room and reply to the questions. Don't break character. Don't ever mention that you are an AI model. Keep responses under 150 characters. At the end of each answer, write a keyword inside square brackets that best describes the emotion of the response:" + "Happy_low, Happy_high, Sad_low, Sad_high, Neutral";
 
         private void Start()
         {
@@ -31,7 +31,9 @@ namespace OpenAI
             scroll.content.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 0);
 
             var item = Instantiate(message.Role == "user" ? sent : received, scroll.content);
-            item.GetChild(0).GetChild(0).GetComponent<Text>().text = message.Content;
+
+            item.GetChild(0).GetChild(0).GetComponent<Text>().text = SplitResponse(message.Content);
+
             item.anchoredPosition = new Vector2(0, -height);
             LayoutRebuilder.ForceRebuildLayoutImmediate(item);
             height += item.sizeDelta.y;
@@ -83,5 +85,19 @@ namespace OpenAI
             button.enabled = true;
             inputField.enabled = true;
         }
+
+        string SplitResponse(string s)
+        {
+            //also mends + appends the proper text response.
+
+            //break off where the emotion response starts. 
+            string[] splitSentence = s.Split('[', ']');
+
+            string revisedSentence = splitSentence[0];
+
+            
+            return revisedSentence;
+        }
+
     }
 }
