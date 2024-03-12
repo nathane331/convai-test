@@ -14,6 +14,7 @@ public class SpeakConnector : MonoBehaviour
     [SerializeField] Animator animator;
     [Range(0f, 1f)]
     [SerializeField] float expressionChangeSpeed = 1f;
+    [SerializeField] Blinker blinkerScript;
 
     List<string> splitStringList = new List<string>();
     string[] splitString;
@@ -67,12 +68,14 @@ public class SpeakConnector : MonoBehaviour
 
                 animator.SetFloat("emotionBlendX", 0.5f, expressionChangeSpeed, Time.deltaTime);
                 animator.SetFloat("emotionBlendY", 0.5f, expressionChangeSpeed, Time.deltaTime);
+                blinkerScript.AdjustBlinkDelay(2f, 4f);
                 break;
             case "Happy_high":
                 //Debug.Log("Current emotion is: " + emotion);
 
                 animator.SetFloat("emotionBlendX", 1f, expressionChangeSpeed, Time.deltaTime);
                 animator.SetFloat("emotionBlendY", 1f, expressionChangeSpeed, Time.deltaTime);
+                blinkerScript.AdjustBlinkDelay(1.5f, 3f);
                 break;
             case "Sad_low":
                 //Debug.Log("Current emotion is: " + emotion);
@@ -90,6 +93,7 @@ public class SpeakConnector : MonoBehaviour
                 //Debug.Log("Current emotion is: " + emotion);
                 animator.SetFloat("emotionBlendX", 0f, expressionChangeSpeed, Time.deltaTime);
                 animator.SetFloat("emotionBlendY", 0f, expressionChangeSpeed, Time.deltaTime);
+                blinkerScript.AdjustBlinkDelay(3f, 6f);
                 break;
             case "Angry":
                 //Debug.Log("Current emotion is: " + emotion);
@@ -99,6 +103,7 @@ public class SpeakConnector : MonoBehaviour
             default:
                 animator.SetFloat("emotionBlendX", 0f, expressionChangeSpeed, Time.deltaTime);
                 animator.SetFloat("emotionBlendY", 0f, expressionChangeSpeed, Time.deltaTime);
+                blinkerScript.AdjustBlinkDelay(3f, 6f);
                 break;
         }
 
