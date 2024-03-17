@@ -16,3 +16,5 @@ MonoBehaviour:
   blendShapeWeights:
   - blendShapeIndex: 101
     weight: 100
+  - blendShapeIndex: 102
+    weight: 0

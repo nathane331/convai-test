@@ -15,4 +15,11 @@ MonoBehaviour:
   faceFeatureName: Eye
   faceFeaturePresetSO:
   - {fileID: 11400000, guid: 15de6b5a4b9a3eb40a280d5b045cace1, type: 2}
+  - {fileID: 11400000, guid: 4134d164201889b479033d81a6b5f888, type: 2}
   - {fileID: 11400000, guid: 5860d2ac5fc254740a579bf574ff4887, type: 2}
+  - {fileID: 11400000, guid: 578abe5a2db5fcd4b87e47d19d67ae6e, type: 2}
+  - {fileID: 11400000, guid: 5d28462d692898649a201783579956b9, type: 2}
+  - {fileID: 11400000, guid: 791e14718cae07c49a334543a498caba, type: 2}
+  - {fileID: 11400000, guid: 3b453fd78effbed4ab0baa5086452cc3, type: 2}
+  - {fileID: 11400000, guid: 0a1028aacaa1e494285b80f9568e0b3d, type: 2}
+  - {fileID: 11400000, guid: cb0a366b74b84f8478f1453906902566, type: 2}

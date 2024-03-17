@@ -44,6 +44,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8660877164071420327, guid: 53cd26a6eefa5a74086203cd118a04d3, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8660877164928630346, guid: 53cd26a6eefa5a74086203cd118a04d3, type: 3}
       propertyPath: m_ChildAlignment
       value: 2

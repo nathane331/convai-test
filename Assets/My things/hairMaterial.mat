@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: hairMaterial
-  m_Shader: {fileID: 4800000, guid: 657852846110fc54e8086c5d16d68761, type: 3}
+  m_Shader: {fileID: 4800000, guid: 29d8963b0e55f284ebbc1d08be7d254b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -25,7 +25,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlphaClip:
-        m_Texture: {fileID: 2800000, guid: 9a79aa322f67842448907ade5c0439ed, type: 3}
+        m_Texture: {fileID: 2800000, guid: 936df982a86d7f94d82ccf510ad5ebfb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BlendMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -48,7 +52,15 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DiffuseMap:
+        m_Texture: {fileID: 2800000, guid: 6a2659f831566ad4ba6f290f51cd1a95, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -57,6 +69,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _HairsNormal:
+        m_Texture: {fileID: 2800000, guid: 936df982a86d7f94d82ccf510ad5ebfb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IDMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -64,7 +80,15 @@ Material:
         m_Texture: {fileID: 2800000, guid: 0ff12dfcd22493f4db80931eb9ec376f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -84,50 +108,107 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _RootMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecularMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - BOOLEAN_ENABLECOLOR: 0
+    - _AOOccludeAll: 0
+    - _AOStrength: 1
+    - _AlphaClip: 0.98
+    - _AlphaPower: 0.01
+    - _AlphaRemap: 1
+    - _BaseColorStrength: 1
+    - _BlendStrength: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
+    - _DiffuseStrength: 1.03
     - _DstBlend: 10
-    - _FastSlow: 150
+    - _EndColorStrength: 1
+    - _FastSlow: 300
+    - _FlowMapFlipGreen: 0
+    - _GlobalStrength: 1
     - _GlossMapScale: 1
-    - _Gloss_Variation: 0.5
+    - _Gloss_Variation: 0.24
     - _Glossiness: 0
     - _GlossyReflections: 1
     - _Grad1_Power: 1
     - _Grad2_Power: 0.446602
-    - _HairSpecCol_Mixing: 1.25
+    - _HairSpecCol_Mixing: 0.83
+    - _HighlightAOverlapEnd: 1
+    - _HighlightAOverlapInvert: 1
+    - _HighlightAStrength: 1
+    - _HighlightBOverlapEnd: 1
+    - _HighlightBOverlapInvert: 1
+    - _HighlightBStrength: 1
+    - _HighlightBlend: 1
+    - _InvertRootMap: 0
     - _Metallic: 0
     - _Mode: 2
-    - _MotionAmount: 0.01
+    - _MotionAmount: 0.02
+    - _NormalStrength: 1
     - _Normal_Blending: 0.5
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _RimPower: 2.8
+    - _RimTransmissionIntensity: 10
+    - _RootColorStrength: 1
+    - _SmoothnessMax: 0.39
+    - _SmoothnessMin: 0
+    - _SmoothnessPower: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecColorInheritance: 0
     - _SpecularHighlights: 1
+    - _SpecularMix: 1
+    - _SpecularMultiplier: 0.87
+    - _SpecularPower: 2
+    - _SpecularPowerScale: 2
+    - _SpecularShiftMax: 0.25
+    - _SpecularShiftMin: -0.25
     - _SrcBlend: 5
-    - _TipAmount: 1
-    - _Translucency: 0
+    - _TipAmount: 1.51
+    - _Translucency: 0.45
     - _UVSec: 0
+    - _VertexColorStrength: 1
     - _ZWrite: 0
+    - __dirty: 1
     m_Colors:
-    - _BaseColorGloss: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _BaseColorGloss: {r: 1, g: 0.66331965, b: 0.5801887, a: 1}
     - _Color: {r: 0.16037738, g: 0.09221337, b: 0.047659315, a: 1}
+    - _DiffuseColor: {r: 0.6509434, g: 0.28047186, b: 0.23642753, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Grad1_Color: {r: 1, g: 0, b: 0, a: 1}
-    - _Grad2_Color: {r: 0, g: 0.5, b: 1, a: 1}
-    - _Hair_ColorGloss: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _NormalAngleShift: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _NormalShift: {r: 0, g: 0.5, b: 0, a: 0}
-    - _ShineColor_ToneBoost: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _ShineColor_ToneBost: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _EndColor: {r: 0.6039216, g: 0.454902, b: 0.2862745, a: 0}
+    - _Grad1_Color: {r: 0.6415094, g: 0.22320272, b: 0.099857606, a: 1}
+    - _Grad2_Color: {r: 0.4528302, g: 0.15894008, b: 0.07048772, a: 1}
+    - _Hair_ColorGloss: {r: 0.6415094, g: 0.32983267, b: 0.32983267, a: 1}
+    - _HighlightAColor: {r: 0.9137255, g: 0.7803922, b: 0.6352941, a: 0}
+    - _HighlightADistribution: {r: 0.1, g: 0.2, b: 0.3, a: 0}
+    - _HighlightBColor: {r: 1, g: 1, b: 1, a: 0}
+    - _HighlightBDistribution: {r: 0.1, g: 0.2, b: 0.3, a: 0}
+    - _NormalAngleShift: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
+    - _NormalShift: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 0}
+    - _RootColor: {r: 0.3294118, g: 0.1411765, b: 0.05098039, a: 0}
+    - _ShineColor_ToneBoost: {r: 0.5, g: 0.29009435, b: 0.29009435, a: 1}
+    - _ShineColor_ToneBost: {r: 0.5943396, g: 0.523893, b: 0.45696867, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _TipColor_Mix: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _Tip_Color: {r: 0.1172414, g: 1, b: 0, a: 0.5}
+    - _SpecularTint: {r: 1, g: 1, b: 1, a: 0}
+    - _TipColor_Mix: {r: 0.60481656, g: 0.52198297, b: 0.9622642, a: 1}
+    - _Tip_Color: {r: 0, g: 0.010979176, b: 1, a: 0.5}
+    - _VertexBaseColor: {r: 0.6698113, g: 0.35702205, b: 0.35702205, a: 1}
   m_BuildTextureStacks: []

@@ -14,9 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   faceFeatureName: Nose
   faceFeaturePresetSO:
-  - {fileID: 11400000, guid: 44db720ca4232584ea07cd70f4550f7b, type: 2}
-  - {fileID: 11400000, guid: ab95b661dac18af4b8daf19d48afa155, type: 2}
   - {fileID: 11400000, guid: c688233a04f5931478c3bf0ae323f8ab, type: 2}
+  - {fileID: 11400000, guid: 4140e8903245bf74f892c8f1e3c6eed7, type: 2}
+  - {fileID: 11400000, guid: ab95b661dac18af4b8daf19d48afa155, type: 2}
+  - {fileID: 11400000, guid: d3078bf698124c4438d902fc6404ee48, type: 2}
+  - {fileID: 11400000, guid: 7b54768c5efbc4c46acbc88708a68ff4, type: 2}
+  - {fileID: 11400000, guid: 67b7b285d83f315488709f5770af98ff, type: 2}
+  - {fileID: 11400000, guid: b72a51c5f0aba734eb11ef316b8a96cb, type: 2}
   - {fileID: 11400000, guid: c24ed9875cd364940872fb6fab801012, type: 2}
   - {fileID: 11400000, guid: de8280b1a757e3a43aa67c1449d70dd9, type: 2}
+  - {fileID: 11400000, guid: 16675bebb2a651e4e822baefa3cb3240, type: 2}
   - {fileID: 11400000, guid: b99c808eead5ed74e94258acf9e69618, type: 2}
+  - {fileID: 11400000, guid: 18133a51c99daa042aee659c60e54ef4, type: 2}
+  - {fileID: 11400000, guid: 44db720ca4232584ea07cd70f4550f7b, type: 2}

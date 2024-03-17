@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facialFeatureName: Eye Tilt Up
   blendShapeWeights:
-  - blendShapeIndex: 100
+  - blendShapeIndex: 101
+    weight: 0
+  - blendShapeIndex: 102
     weight: 100

@@ -25,7 +25,7 @@ public class CubeColorModifier : MonoBehaviour
         color.g = green.value;
         color.b = blue.value;
         skin.material.color = color;
-        skin.material.SetColor("_EmissionColor", color);
+        //skin.material.SetColor("_EmissionColor", color);
 
         scalp.material.color = color;
        // scalp.material.SetColor("_EmissionColor", color);
@@ -38,7 +38,7 @@ public class CubeColorModifier : MonoBehaviour
         Color color = skinColors[skinColorIndex];
 
         skin.material.color = color;
-        skin.material.SetColor("_EmissionColor", color);
+       // skin.material.SetColor("_EmissionColor", color);
 
         scalp.material.color = color;
         //scalp.material.SetColor("_EmissionColor", color);
