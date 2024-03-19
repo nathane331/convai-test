@@ -28,9 +28,16 @@ public class SpeakConnector : MonoBehaviour
     [SerializeField] float eyeMovementDelay = 0.2f;
     [SerializeField] float headMovementDelay = 0.1f;
     [SerializeField] float movementSpeed = 1f;
+    [SerializeField] float eyeMovementSpeed = 1f;
+    [SerializeField] float headMovementSpeed = 1f;
 
     private Vector3 originalEyeTargetPosition;
     private Vector3 originalHeadTargetPosition;
+
+    public Transform[] eyeWaypoints;
+    public Transform[] headWaypoints;
+    private int currentEyeWaypointIndex = 0;
+    private int currentHeadWaypointIndex = 0;
 
     private bool isTalking = false;
 
@@ -82,16 +89,17 @@ public class SpeakConnector : MonoBehaviour
     {
         if (!isTalking)
         {
-            // Example: Making the character look around at random points
-            // Adjust the range and timing to suit your needs
-            float eyeX = Mathf.Sin(Time.time * 0.5f) * 0.1f;
-            float eyeY = Mathf.Cos(Time.time * 0.75f) * 0.1f;
-            Vector3 eyeIdlePosition = originalEyeTargetPosition + new Vector3(eyeX, eyeY, 0);
-            eyeTarget.position = Vector3.Lerp(eyeTarget.position, eyeIdlePosition, Time.deltaTime * movementSpeed);
+            eyeTarget.position = Vector3.MoveTowards(eyeTarget.position, eyeWaypoints[currentEyeWaypointIndex].position, eyeMovementSpeed * Time.deltaTime);
+            if (Vector3.Distance(eyeTarget.position, eyeWaypoints[currentEyeWaypointIndex].position) < 0.01f)
+            {
+                currentEyeWaypointIndex = (currentEyeWaypointIndex + 1) % eyeWaypoints.Length;
+            }
 
-            float headX = Mathf.Sin(Time.time * 0.5f) * 0.05f;
-            Vector3 headIdlePosition = originalHeadTargetPosition + new Vector3(headX, 0, 0);
-            headTarget.position = Vector3.Lerp(headTarget.position, headIdlePosition, Time.deltaTime * movementSpeed);
+            headTarget.position = Vector3.MoveTowards(headTarget.position, headWaypoints[currentHeadWaypointIndex].position, headMovementSpeed * Time.deltaTime);
+            if (Vector3.Distance(headTarget.position, headWaypoints[currentHeadWaypointIndex].position) < 0.01f)
+            {
+                currentHeadWaypointIndex = (currentHeadWaypointIndex + 1) % headWaypoints.Length;
+            }
         }
     }
 
