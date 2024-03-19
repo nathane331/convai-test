@@ -408,18 +408,18 @@ MonoBehaviour:
     <presetinput identifier=\"$outputsize\" uid=\"2275420388\" type=\"8\" value=\"10,10\"
     />\n  <presetinput identifier=\"$randomseed\" uid=\"3503439542\" type=\"4\" value=\"7038\"
     />\n  <presetinput identifier=\"Middle_color\" uid=\"3932869746\" type=\"3\"
-    value=\"0.632075,0.632075,0.632075,1\" />\n  <presetinput identifier=\"Edge_color\"
-    uid=\"3932880359\" type=\"3\" value=\"0.14902,0.0431373,0,1\" />\n  <presetinput
-    identifier=\"Inner_color\" uid=\"3932866154\" type=\"3\" value=\"0.247059,0.0196078,0,1\"
-    />\n  <presetinput identifier=\"Background_color\" uid=\"3932795919\" type=\"3\"
-    value=\"0.262745,0.105882,0,1\" />\n  <presetinput identifier=\"pupil_size\"
-    uid=\"3932891420\" type=\"0\" value=\"0.074\" />\n  <presetinput identifier=\"width\"
-    uid=\"3932891488\" type=\"0\" value=\"0.23\" />\n  <presetinput identifier=\"Freckles_softness\"
-    uid=\"3932803187\" type=\"0\" value=\"1\" />\n  <presetinput identifier=\"Freckles_color\"
-    uid=\"3932751523\" type=\"3\" value=\"1,1,1,1\" />\n  <presetinput identifier=\"Layer_one_color\"
+    value=\"1,1,1,1\" />\n  <presetinput identifier=\"Edge_color\" uid=\"3932880359\"
+    type=\"3\" value=\"0.14902,0.0431373,0,1\" />\n  <presetinput identifier=\"Inner_color\"
+    uid=\"3932866154\" type=\"3\" value=\"0.247059,0.0196078,0,1\" />\n  <presetinput
+    identifier=\"Background_color\" uid=\"3932795919\" type=\"3\" value=\"0.262745,0.105882,0,1\"
+    />\n  <presetinput identifier=\"pupil_size\" uid=\"3932891420\" type=\"0\" value=\"0.074\"
+    />\n  <presetinput identifier=\"width\" uid=\"3932891488\" type=\"0\" value=\"0.23\"
+    />\n  <presetinput identifier=\"Freckles_softness\" uid=\"3932803187\" type=\"0\"
+    value=\"1\" />\n  <presetinput identifier=\"Freckles_color\" uid=\"3932751523\"
+    type=\"3\" value=\"1,1,1,1\" />\n  <presetinput identifier=\"Layer_one_color\"
     uid=\"3932818486\" type=\"3\" value=\"0.133333,0.027451,0,1\" />\n  <presetinput
     identifier=\"Color_layer_two\" uid=\"3932866457\" type=\"3\" value=\"0.113725,0,0.0196078,1\"
-    />\n  <presetinput identifier=\"White_color\" uid=\"3932880401\" type=\"3\" value=\"1,0.855883,0.845283,1\"
+    />\n  <presetinput identifier=\"White_color\" uid=\"3932880401\" type=\"3\" value=\"0.896226,0.828847,0.741176,1\"
     />\n </sbspreset>\n"
   IsRuntimeOnly: 0
   GenerateAllOutputs: 0
@@ -946,7 +946,7 @@ MonoBehaviour:
             output image
           Type: 3
           WidgetType: 3
-        Data: {x: 1, y: 0.8558828, z: 0.84528303, w: 1}
+        Data: {x: 0.8962264, y: 0.8288468, z: 0.7411765, w: 1}
         NumericalDescription:
           DefaultValue: {x: 0.72, y: 0.718279, z: 0.6336, w: 1}
           MinValue: {x: 0, y: 0, z: 0, w: 0}

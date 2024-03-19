@@ -85,6 +85,7 @@ public class CubeColorModifier : MonoBehaviour
         Texture newNormal = skinNormals[skinTypeIndex];
 
         skin.material.SetTexture("_NormalMap", newNormal);
+        skin.material.SetFloat("_NormalScale", 0.2f);
 
         labeltext.text = skinTypeIndex.ToString();
     }
@@ -103,6 +104,7 @@ public class CubeColorModifier : MonoBehaviour
         Texture newNormal = skinNormals[skinTypeIndex];
 
         skin.material.SetTexture("_NormalMap", newNormal);
+        skin.material.SetFloat("_NormalScale", 0.2f);
 
         labeltext.text = skinTypeIndex.ToString();
     }
