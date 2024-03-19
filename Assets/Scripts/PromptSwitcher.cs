@@ -18,9 +18,6 @@ namespace OpenAI
         {
             chat.receivedPersonality = personalitySOs[i].PersonalityPrompt;
 
-            chat.gameObject.SetActive(false);
-            chat.gameObject.SetActive(true);
-
             chat.prompt = chat.receivedPersonality + chat.promptInstructions;
             Debug.Log(chat.prompt);
         }

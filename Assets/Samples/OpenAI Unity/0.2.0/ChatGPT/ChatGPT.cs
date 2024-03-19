@@ -28,7 +28,7 @@ namespace OpenAI
         {
             button.onClick.AddListener(SendReply);
 
-
+            prompt = promptInstructions;
         }
 
         private void AppendMessage(ChatMessage message)

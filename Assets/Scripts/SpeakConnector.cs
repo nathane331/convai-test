@@ -3,31 +3,43 @@ using OpenAI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations.Rigging;
 using UnityEngine.UI;
 //using System.Text.RegularExpressions;
 
 
 public class SpeakConnector : MonoBehaviour
 {
+    [Header("ChatGPT and TTS")]
     [SerializeField] ChatGPT chat;
     [SerializeField] public TTSSpeaker _speaker;
+
+    [Header("Animation")]
     [SerializeField] Animator animator;
+    [SerializeField] Blinker blinkerScript;
     [Range(0f, 1f)]
     [SerializeField] float expressionChangeSpeed = 1f;
-    [SerializeField] Blinker blinkerScript;
+
+    [Header("Targets")]
+    [SerializeField] Transform eyeTarget;
+    [SerializeField] Transform headTarget;
+    [SerializeField] Transform talkingLookAtTarget;
+
+    [Header("Movement Parameters")]
+    [SerializeField] float eyeMovementDelay = 0.2f;
+    [SerializeField] float headMovementDelay = 0.1f;
+    [SerializeField] float movementSpeed = 1f;
+
+    private Vector3 originalEyeTargetPosition;
+    private Vector3 originalHeadTargetPosition;
+
+    private bool isTalking = false;
 
     List<string> splitStringList = new List<string>();
     string[] splitString;
     string newSentence;
 
+
     AudioClip umm;
-
-    [SerializeField] private MultiAimConstraint headConstraint;
-    [SerializeField] private MultiAimConstraint eyeConstraintL;
-    [SerializeField] private MultiAimConstraint eyeConstraintR;
-
-    [SerializeField] Transform mainCamera, neckTarget, eyeTarget;
 
 
     [SerializeField] string emotion;
@@ -36,32 +48,50 @@ public class SpeakConnector : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        // Default positions
+        originalEyeTargetPosition = eyeTarget.position;
+        originalHeadTargetPosition = headTarget.position;
         //default idle
         emotion = "Neutral";
         chat.chatResponse = null;
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(chat.chatResponse != null)
+        UpdateIdleBehavior();
+
+        if (chat.chatResponse != null)
         {
-            if (chat.chatResponse.Length < 150) //if the response is short enough
-            {
-                string[] newSentenceEmotionArray = SplitResponse(chat.chatResponse);
-               
-                newSentence = newSentenceEmotionArray[0];
-                emotion = newSentenceEmotionArray[1];
+            string[] newSentenceEmotionArray = SplitResponse(chat.chatResponse);
 
-           
+            newSentence = newSentenceEmotionArray[0];
+            emotion = newSentenceEmotionArray[1];
 
-                StartCoroutine(StartTTS(newSentence)); //begin reading
-                chat.chatResponse = null;  //set back to null.
+            isTalking = true; // Character starts talking
+            StartCoroutine(StartTTS(newSentence)); // Begin reading
+            chat.chatResponse = null;  // Set back to null.
 
-                //chat.newTextArea.text = newSentence;
+            // Reset positions immediately for talking
+            eyeTarget.position = originalEyeTargetPosition;
+            headTarget.position = originalHeadTargetPosition;
+        }
+    }
+    void UpdateIdleBehavior()
+    {
+        if (!isTalking)
+        {
+            // Example: Making the character look around at random points
+            // Adjust the range and timing to suit your needs
+            float eyeX = Mathf.Sin(Time.time * 0.5f) * 0.1f;
+            float eyeY = Mathf.Cos(Time.time * 0.75f) * 0.1f;
+            Vector3 eyeIdlePosition = originalEyeTargetPosition + new Vector3(eyeX, eyeY, 0);
+            eyeTarget.position = Vector3.Lerp(eyeTarget.position, eyeIdlePosition, Time.deltaTime * movementSpeed);
 
-            }
+            float headX = Mathf.Sin(Time.time * 0.5f) * 0.05f;
+            Vector3 headIdlePosition = originalHeadTargetPosition + new Vector3(headX, 0, 0);
+            headTarget.position = Vector3.Lerp(headTarget.position, headIdlePosition, Time.deltaTime * movementSpeed);
         }
     }
 
@@ -75,14 +105,14 @@ public class SpeakConnector : MonoBehaviour
 
                 animator.SetFloat("emotionBlendX", 0.5f, expressionChangeSpeed, Time.deltaTime);
                 animator.SetFloat("emotionBlendY", 0.5f, expressionChangeSpeed, Time.deltaTime);
-                blinkerScript.AdjustBlinkDelay(2f, 4f);
+                blinkerScript.AdjustBlinkDelay(2f, 4f); // Adjust blink delay for Happy_low
                 break;
             case "Happy_high":
                 //Debug.Log("Current emotion is: " + emotion);
 
                 animator.SetFloat("emotionBlendX", 1f, expressionChangeSpeed, Time.deltaTime);
                 animator.SetFloat("emotionBlendY", 1f, expressionChangeSpeed, Time.deltaTime);
-                blinkerScript.AdjustBlinkDelay(1.5f, 3f);
+                blinkerScript.AdjustBlinkDelay(1.5f, 3f); // Adjust blink delay for Happy_high
                 break;
             case "Sad_low":
                 //Debug.Log("Current emotion is: " + emotion);
@@ -100,7 +130,7 @@ public class SpeakConnector : MonoBehaviour
                 //Debug.Log("Current emotion is: " + emotion);
                 animator.SetFloat("emotionBlendX", 0f, expressionChangeSpeed, Time.deltaTime);
                 animator.SetFloat("emotionBlendY", 0f, expressionChangeSpeed, Time.deltaTime);
-                blinkerScript.AdjustBlinkDelay(3f, 6f);
+                blinkerScript.AdjustBlinkDelay(3f, 6f); // Reset to default blink delay
                 break;
             case "Angry":
                 //Debug.Log("Current emotion is: " + emotion);
@@ -110,7 +140,7 @@ public class SpeakConnector : MonoBehaviour
             default:
                 animator.SetFloat("emotionBlendX", 0f, expressionChangeSpeed, Time.deltaTime);
                 animator.SetFloat("emotionBlendY", 0f, expressionChangeSpeed, Time.deltaTime);
-                blinkerScript.AdjustBlinkDelay(3f, 6f);
+                blinkerScript.AdjustBlinkDelay(3f, 6f); // Default blinking speed for unhandled emotions
                 break;
         }
 
@@ -118,21 +148,27 @@ public class SpeakConnector : MonoBehaviour
 
     IEnumerator StartTTS(string s)
     {
+        isTalking = true;
         Debug.Log("ChatGPT response received. Starting TTS.");
         _speaker.Speak(s);
 
-        headConstraint.data.sourceObjects.SetTransform(0, mainCamera.transform);
-        eyeConstraintL.data.sourceObjects.SetTransform(0, mainCamera.transform);
-        eyeConstraintR.data.sourceObjects.SetTransform(0, mainCamera.transform);
+        // Focus on talking target
+        float duration = 3f; // Adjust based on TTS length or dynamically calculate
+        float timer = 0;
+        while (timer < duration)
+        {
+            if (talkingLookAtTarget != null)
+            {
+                eyeTarget.position = Vector3.Lerp(eyeTarget.position, talkingLookAtTarget.position, Time.deltaTime * movementSpeed);
+                headTarget.position = Vector3.Lerp(headTarget.position, talkingLookAtTarget.position, Time.deltaTime * movementSpeed);
+            }
+            timer += Time.deltaTime;
+            yield return null;
+        }
 
-        yield return new WaitWhile(() => _speaker.IsSpeaking);
-
-        headConstraint.data.sourceObjects.SetTransform(0, neckTarget);
-        eyeConstraintL.data.sourceObjects.SetTransform(0, eyeTarget);
-        eyeConstraintR.data.sourceObjects.SetTransform(0, eyeTarget);
-
+        isTalking = false;
     }
-    
+
     string[] SplitResponse(string s)
     {
         //also mends + appends the proper text response.
@@ -140,7 +176,7 @@ public class SpeakConnector : MonoBehaviour
         //break off where the emotion response starts. 
         string[] splitEmotion = s.Split('[');
 
-       
+
         splitEmotion[0] = AppendResponse(splitEmotion[0]); //this is my new sentence
 
 
@@ -151,8 +187,18 @@ public class SpeakConnector : MonoBehaviour
 
         return splitEmotion;
     }
-    
 
+    IEnumerator MoveTargetWithDelay(Transform target, Vector3 direction, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        // Move towards a new position based on direction. This is a simplified approach.
+        Vector3 newPosition = target.position + direction;
+        while (Vector3.Distance(target.position, newPosition) > 0.01f)
+        {
+            target.position = Vector3.MoveTowards(target.position, newPosition, movementSpeed * Time.deltaTime);
+            yield return null;
+        }
+    }
     string AppendResponse(string s) //fix the new response
     {
         s = s.Replace("\"", "");
