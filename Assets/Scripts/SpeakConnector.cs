@@ -3,6 +3,7 @@ using OpenAI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.UI;
 //using System.Text.RegularExpressions;
 
@@ -21,6 +22,12 @@ public class SpeakConnector : MonoBehaviour
     string newSentence;
 
     AudioClip umm;
+
+    [SerializeField] private MultiAimConstraint headConstraint;
+    [SerializeField] private MultiAimConstraint eyeConstraintL;
+    [SerializeField] private MultiAimConstraint eyeConstraintR;
+
+    [SerializeField] Transform mainCamera, neckTarget, eyeTarget;
 
 
     [SerializeField] string emotion;
@@ -113,7 +120,16 @@ public class SpeakConnector : MonoBehaviour
     {
         Debug.Log("ChatGPT response received. Starting TTS.");
         _speaker.Speak(s);
-        yield return null;
+
+        headConstraint.data.sourceObjects.SetTransform(0, mainCamera.transform);
+        eyeConstraintL.data.sourceObjects.SetTransform(0, mainCamera.transform);
+        eyeConstraintR.data.sourceObjects.SetTransform(0, mainCamera.transform);
+
+        yield return new WaitWhile(() => _speaker.IsSpeaking);
+
+        headConstraint.data.sourceObjects.SetTransform(0, neckTarget);
+        eyeConstraintL.data.sourceObjects.SetTransform(0, eyeTarget);
+        eyeConstraintR.data.sourceObjects.SetTransform(0, eyeTarget);
 
     }
     
