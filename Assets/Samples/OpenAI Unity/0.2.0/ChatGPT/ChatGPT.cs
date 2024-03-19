@@ -9,7 +9,7 @@ namespace OpenAI
         [SerializeField] private InputField inputField;
         [SerializeField] private Button button;
         [SerializeField] private ScrollRect scroll;
-        
+
         [SerializeField] private RectTransform sent;
         [SerializeField] private RectTransform received;
 
@@ -19,11 +19,16 @@ namespace OpenAI
         private OpenAIApi openai = new OpenAIApi("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");
 
         private List<ChatMessage> messages = new List<ChatMessage>();
-        private string prompt = "Act as a random stranger in a chat room and reply to the questions. Don't break character. Don't ever mention that you are an AI model. Keep responses under 150 characters. At the end of each answer, write a keyword inside square brackets that best describes the emotion of the response:" + "Happy_low, Happy_high, Sad_low, Sad_high, Neutral";
+        [SerializeField] public string receivedPersonality;
+        public string prompt;
+        public string promptInstructions = " Don't break character. Don't ever mention that you are an AI model. Keep responses under 150 characters. At the end of each answer, write a keyword inside square brackets that best describes the emotion of the response:" + "Happy_low, Happy_high, Sad_low, Sad_high, Neutral";
 
+        
         private void Start()
         {
             button.onClick.AddListener(SendReply);
+
+
         }
 
         private void AppendMessage(ChatMessage message)
