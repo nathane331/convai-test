@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CubeColorModifier : MonoBehaviour
 {
@@ -13,10 +14,14 @@ public class CubeColorModifier : MonoBehaviour
     public Color[] skinColors;
     [SerializeField] int skinColorIndex;
 
+    [SerializeField] int skinTypeIndex = 0;
+
     [SerializeField] Image skinPreview;
 
     public Texture[] skinNormals;
     public Texture[] skinAlbedo;
+
+    public TMP_Text labeltext;
 
     public void OnEdit()
     {
@@ -58,11 +63,38 @@ public class CubeColorModifier : MonoBehaviour
         skin.material.SetTexture("_BumpMap", newNormal);
     }
 
+
     public void ChangeSkinAlbedoPreset(int skinAlbedoIndex)
     {
         Texture newAlbedo = skinAlbedo[skinAlbedoIndex];
 
-        skin.material.SetTexture("_MainTex", newAlbedo);
+        skin.material.SetTexture("_BaseColorMap", newAlbedo);
+    }
+
+    public void IncreaseSkinTypeIndex()
+    {
+        if(skinTypeIndex == skinAlbedo.Length-1)
+            skinTypeIndex = 0;
+        else
+            skinTypeIndex++;
+
+        Texture newAlbedo = skinAlbedo[skinTypeIndex];
+
+        skin.material.SetTexture("_BaseColorMap", newAlbedo);
+        labeltext.text = skinTypeIndex.ToString();
+    }
+
+    public void DecreaseSkinTypeIndex()
+    {
+        if (skinTypeIndex == 0)
+            skinTypeIndex = skinAlbedo.Length-1;
+        else
+            skinTypeIndex--;
+
+        Texture newAlbedo = skinAlbedo[skinTypeIndex];
+
+        skin.material.SetTexture("_BaseColorMap", newAlbedo);
+        labeltext.text = skinTypeIndex.ToString();
     }
 
 }
